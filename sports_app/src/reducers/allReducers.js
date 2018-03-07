@@ -1,8 +1,8 @@
-import {combineReducers} from 'redux';
-import stuff from './stuffReducer';
+import { combineReducers } from 'redux';
+import leagues from './leaguesReducer';
 
 const rootReducer = combineReducers({
-  stuff
+  leagues
 });
 
 export default rootReducer;
