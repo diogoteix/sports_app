@@ -1,3 +1,6 @@
 export default {
-  leagues: []
+  leagues: {
+    fetchingData: false,
+    list: []
+  }
 };

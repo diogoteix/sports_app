@@ -26,7 +26,7 @@ class leaguesList extends React.Component {
     }
 
     render() {
-        if (!this.props.leagues) {
+        if (!this.props.leagues.list || this.props.leagues.fetchingData) {
             return (
                 <div>
                     Loading leagues...
@@ -38,12 +38,12 @@ class leaguesList extends React.Component {
                     <FormGroup controlId="formControlsSelect">
                         <ControlLabel>Select</ControlLabel>
                         <FormControl
-                            onChange={this.onPickColor.bind(this)}
+                            onChange={this.onSelectLeague.bind(this)}
                             inputRef={el => this.inputEl = el}
                             componentClass="select" placeholder="select">
                             <option value="">select</option>
                             {
-                                this.props.leagues.map((item, index) => {
+                                this.props.leagues.list.map((item, index) => {
                                     return (
                                         this.renderData(item)
                                     );
@@ -53,7 +53,7 @@ class leaguesList extends React.Component {
                         </FormControl>
                     </FormGroup>
                     {
-                        this.props.leagues.map((item, index) => {
+                        this.props.leagues.list.map((item, index) => {
                             return (
                                 this.renderData(item)
                             );
@@ -67,7 +67,7 @@ class leaguesList extends React.Component {
 
 leaguesList.propTypes = {
     leaguesActions: PropTypes.object,
-    leagues: PropTypes.array
+    leagues: PropTypes.object
 };
 
 function mapStateToProps(state) {
