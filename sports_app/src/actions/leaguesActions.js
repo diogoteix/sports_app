@@ -19,6 +19,13 @@ export function fetchLeaguesError(data) {
     }
 }
 
+export function selectLeague(data) {
+    return {
+        type: allActions.SELECT_LEAGUE,
+        payload: data
+    }
+}
+
 
 export function fetchLeagues(subreddit) {
 

@@ -15,6 +15,7 @@ class leaguesList extends React.Component {
     onSelectLeague(e) {
         console.log('[onSelectLeague]', this.inputEl.value)
         this.setState({ league: this.inputEl.value });
+        this.props.leaguesActions.selectLeague(this.inputEl.value);
     }
 
     componentWillMount() {
@@ -52,13 +53,6 @@ class leaguesList extends React.Component {
 
                         </FormControl>
                     </FormGroup>
-                    {
-                        this.props.leagues.list.map((item, index) => {
-                            return (
-                                this.renderData(item)
-                            );
-                        })
-                    }
                 </div>
             )
         }
