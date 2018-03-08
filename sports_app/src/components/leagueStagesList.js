@@ -1,64 +1,53 @@
 import { FormGroup, FormControl, ControlLabel } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as seasonsActions from '../actions/seasonsActions';
 import * as leagueTableActions from '../actions/leagueTableActions';
 import PropTypes from 'prop-types';
 import React from 'react';
 
 
-class seasonsList extends React.Component {
+class leagueStagesList extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { season: '' };
+        this.state = { stage: '' };
     }
 
-    onSelectSeason(e) {
-        console.log('[onSelectSeason]', this.inputEl.value)
-        this.setState({ season: this.inputEl.value });
-        if (this.state.season !== '') {
-            this.props.leagueTableActions.selectStage(null);
-        }
-        this.props.seasonsActions.selectSeason(this.inputEl.value);
-        this.props.leagueTableActions.fetchLeagueTable(this.inputEl.value);
-    }
-
-    componentWillMount() {
-        this.props.seasonsActions.fetchSeasons();
+    onSelectStage(e) {
+        console.log('[onSelectStage]', this.inputEl.value)
+        this.setState({ stage: this.inputEl.value });
+        this.props.leagueTableActions.selectStage(this.inputEl.value);
+        //this.props.leagueTableActions.fetchLeagueTable(this.inputEl.value);
     }
 
     renderData(item) {
-        return <option value={item.id}>{item.name}</option>
+        return <option value={item.stage_id}>{item.stage_name}</option>
     }
 
     render() {
-        if (!this.props.selectedLeague) {
+        if (!this.props.selectedSeason) {
             return (
                 <div>
-                    Select a league
+                    Select a season
                 </div>
             )
-        } else if (!this.props.seasons.list || this.props.seasons.fetchingData) {
+        } else if (!this.props.leagueTable.stagesList || this.props.leagueTable.fetchingData) {
             return (
                 <div>
-                    Loading seasons...
+                    Loading stages...
                 </div>
             )
         } else {
             return (
                 <div className="">
                     <FormGroup controlId="formControlsSelect">
-                        <ControlLabel>Seasons</ControlLabel>
+                        <ControlLabel>Stages</ControlLabel>
                         <FormControl
-                            onChange={this.onSelectSeason.bind(this)}
+                            onChange={this.onSelectStage.bind(this)}
                             inputRef={el => this.inputEl = el}
                             componentClass="select" placeholder="select">
                             <option value="">select</option>
                             {
-                                this.props.seasons.list
-                                    .filter((item) => {
-                                        return item.league_id.toString() == this.props.selectedLeague;
-                                    })
+                                this.props.leagueTable.stagesList
                                     .map((item, index) => {
                                         return (
                                             this.renderData(item)
@@ -74,22 +63,20 @@ class seasonsList extends React.Component {
     }
 }
 
-seasonsList.propTypes = {
-    seasonsActions: PropTypes.object,
+leagueStagesList.propTypes = {
     leagueTableActions: PropTypes.object,
-    seasons: PropTypes.object
+    leagueTable: PropTypes.object
 };
 
 function mapStateToProps(state) {
     return {
-        seasons: state.seasons,
-        selectedLeague: state.leagues.selectedLeague
+        leagueTable: state.leagueTable,
+        selectedSeason: state.seasons.selectedSeason
     };
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        seasonsActions: bindActionCreators(seasonsActions, dispatch),
         leagueTableActions: bindActionCreators(leagueTableActions, dispatch)
     };
 }
@@ -97,4 +84,4 @@ function mapDispatchToProps(dispatch) {
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(seasonsList);
+)(leagueStagesList);

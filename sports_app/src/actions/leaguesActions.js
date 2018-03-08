@@ -27,7 +27,7 @@ export function selectLeague(data) {
 }
 
 
-export function fetchLeagues(subreddit) {
+export function fetchLeagues() {
 
     return function (dispatch) {
 

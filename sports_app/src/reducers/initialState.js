@@ -6,6 +6,12 @@ export default {
   },
   seasons: {
     fetchingData: false,
-    list: []
+    list: [],
+    selectedSeason: null
+  },
+  leagueTable: {
+    fetchingData: false,
+    stagesList: [],
+    selectedStage: null
   }
 };
