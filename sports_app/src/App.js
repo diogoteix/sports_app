@@ -4,16 +4,18 @@ import LeaguesList from './components/leaguesList';
 import SeasonsList from './components/seasonsList';
 import LeagueStagesList from './components/leagueStagesList';
 import LeagueTable from './components/leagueTable';
+import player from './images/player.svg';
 
 class App extends Component {
     render() {
         return (
             <div className="app">
-                <PageHeader>
-                    Example page header <small>Subtext for header</small>
-                </PageHeader>
+                <div class="page-header">
+                    <img src={player} class="icon" alt="Player" />
+                    <h1>Soccer App</h1>
+                </div>
                 <div class="container">
-                    <div class="row">
+                    <div class="row select-box-area">
                         <div class="col-xs-4">
                             <LeaguesList />
                         </div>

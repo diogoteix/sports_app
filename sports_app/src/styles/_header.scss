@@ -1,0 +1,21 @@
+.page-header {
+    align-items: center;
+    background-color: #afafb5;
+    margin: 0;
+    margin-bottom: 30px;
+    min-height: 75px;
+    padding: 5px 0;
+
+    h1 {
+        margin: 10px 0;
+        text-align: center;
+    }
+
+    .icon {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 75px;
+        margin: 0 20px;
+    }
+}
