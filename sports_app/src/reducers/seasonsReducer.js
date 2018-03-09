@@ -5,16 +5,12 @@ import { FETCH_SEASONS_BEGIN, FETCH_SEASONS_SUCCESS, FETCH_SEASONS_ERROR, SELECT
 export default function seasons(state = initialState.seasons, action) {
     switch (action.type) {
         case FETCH_SEASONS_BEGIN:
-            console.log('FETCH_SEASONS_BEGIN Action')
             return update(state, { fetchingData: { $set: true } });
         case FETCH_SEASONS_SUCCESS:
-            console.log('FETCH_SEASONS_SUCCESS Action')
             return update(state, { fetchingData: { $set: false }, list: { $set: action.payload } });
         case FETCH_SEASONS_ERROR:
-            console.log('FETCH_SEASONS_ERROR Action')
-            return update(state, { fetchingData: false, list: [] });
+            return update(state, { fetchingData: { $set: false }, list: { $set: [] } });
         case SELECT_SEASON:
-            console.log('SELECT_SEASON action')
             return update(state, { selectedSeason: { $set: action.payload } });
         default:
             return state;
