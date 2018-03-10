@@ -14,10 +14,11 @@ class teamModalPositionPlayers extends React.Component {
             .filter(player => {
               return player.position_id === this.props.positionId;
             })
-            .map(player => {
+            .map((player, index) => {
               return (
                 <div
-                  class="col-xs-4 player"
+                  key={index}
+                  className="col-xs-4 player"
                   onClick={() =>
                     this.props.teamActions.selectPlayer(player.player_id)
                   }

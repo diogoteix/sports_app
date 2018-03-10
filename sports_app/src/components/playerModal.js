@@ -4,7 +4,6 @@ import { bindActionCreators } from "redux";
 import * as teamActions from "../actions/teamActions";
 import PropTypes from "prop-types";
 import React from "react";
-import TeamModalPositionPlayers from "./teamModalPositionPlayers";
 
 class playerModal extends React.Component {
   constructor(props) {
@@ -35,7 +34,7 @@ class playerModal extends React.Component {
 
   render() {
     if (!this.props.team.selectedPlayer) {
-      return <div>Select a player</div>;
+      return <div />;
     } else {
       return (
         <Modal

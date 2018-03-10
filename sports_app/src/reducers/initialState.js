@@ -11,8 +11,13 @@ export default {
   },
   leagueTable: {
     fetchingData: false,
+    fetchingTopScorers: false,
+    fetchingTopScorersPlayer: false,
     stagesList: [],
-    selectedStage: null
+    selectedStage: null,
+    topScorers: [],
+    selectedPlayer: null,
+    player: null
   },
   team: {
     fetchingTeam: false,

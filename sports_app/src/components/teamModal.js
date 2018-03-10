@@ -6,52 +6,6 @@ import PropTypes from "prop-types";
 import React from "react";
 import TeamModalPositionPlayers from "./teamModalPositionPlayers";
 
-const columns = [
-  {
-    Header: "Position",
-    accessor: "position" // String-based value accessors!
-  },
-  {
-    Header: "Name",
-    accessor: "team_name"
-  },
-  {
-    Header: "Played",
-    id: "played",
-    accessor: t => t.overall.games_played
-  },
-  {
-    Header: "Won",
-    id: "won",
-    accessor: t => t.overall.won
-  },
-  {
-    Header: "Draw",
-    id: "draw",
-    accessor: t => t.overall.draw
-  },
-  {
-    Header: "Lost",
-    id: "lost",
-    accessor: t => t.overall.lost
-  },
-  {
-    Header: "Goal",
-    id: "goal",
-    accessor: t => t.overall.goals_scored + " - " + t.overall.goals_against
-  },
-  {
-    Header: "Difference",
-    id: "difference",
-    accessor: t => t.total.goal_difference
-  },
-  {
-    Header: "Points",
-    id: "points",
-    accessor: t => t.total.points
-  }
-];
-
 class teamModal extends React.Component {
   constructor(props) {
     super(props);
@@ -64,7 +18,7 @@ class teamModal extends React.Component {
 
   render() {
     if (!this.props.team.selectedTeam) {
-      return <div>Select a team</div>;
+      return <div />;
     } else if (
       !this.props.team.teamPlayers ||
       this.props.team.fetchingPlayers ||
