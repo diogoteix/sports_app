@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/components/leagueTable.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">All files</a> / <a href="index.html">src/components</a> leagueTable.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>0/46</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/18</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/16</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>0/30</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111</td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Form<span class="cstat-no" title="statement not covered" >Group, FormControl, ControlLabel } from 'react-bootstrap';<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ></span></span></span>
+import { connect }<span class="cstat-no" title="statement not covered" > from 'react-redux';</span>
+import { bind<span class="cstat-no" title="statement not covered" >ActionCreators } </span>from 'redux';
+import * as leagueTableAct<span class="cstat-no" title="statement not covered" >ions from '../actions/leagueTableActions'</span>;<span class="cstat-no" title="statement not covered" ></span>
+import PropTypes <span class="cstat-no" title="statement not covered" >from 'prop-types';<span class="cstat-no" title="statement not covered" ></span></span>
+import React <span class="cstat-no" title="statement not covered" >from 'react';<span class="cstat-no" title="statement not covered" ></span></span>
+import ReactTable <span class="cstat-no" title="statement not covered" >from 'react-table';<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ><span class="fstat-no" title="function not covered" ></span></span></span></span></span></span></span></span></span></span></span></span></span></span>
+&nbsp;
+const columns = <span class="cstat-no" title="statement not covered" >[{</span>
+    Header: 'Position',
+    accessor: 'position' // String-based value accessors!
+}, {
+    Header: 'Name',
+    accessor: 'team_name',
+}, {
+    Header: 'Played',
+    id: 'played',
+    accessor: <span class="fstat-no" title="function not covered" >t </span>=&gt; <span class="cstat-no" title="statement not covered" >t.overall.games_played</span>
+}, {
+    Header: 'Won',
+    id: 'won',
+    accessor: <span class="fstat-no" title="function not covered" >t </span>=&gt; <span class="cstat-no" title="statement not covered" >t.overall.won</span>
+}, {
+    Header: 'Draw',
+    id: 'draw',
+    accessor: <span class="fstat-no" title="function not covered" >t </span>=&gt; <span class="cstat-no" title="statement not covered" >t.overall.draw</span>
+}, {
+    Header: 'Lost',
+    id: 'lost',
+    accessor: <span class="fstat-no" title="function not covered" >t </span>=&gt; <span class="cstat-no" title="statement not covered" >t.overall.lost</span>
+}, {
+    Header: 'Goal',
+    id: 'goal',
+    accessor: <span class="fstat-no" title="function not covered" >t </span>=&gt; <span class="cstat-no" title="statement not covered" >t.overall.goals_scored + " - " + t.overall.goals_against</span>
+}, {
+    Header: 'Difference',
+    id: 'difference',
+    accessor: <span class="fstat-no" title="function not covered" >t </span>=&gt; <span class="cstat-no" title="statement not covered" >t.total.goal_difference</span>
+}, {
+    Header: 'Points',
+    id: 'points',
+    accessor: <span class="fstat-no" title="function not covered" >t </span>=&gt; <span class="cstat-no" title="statement not covered" >t.total.points</span>
+}];
+&nbsp;
+class leagueTable extends React.Component {
+<span class="fstat-no" title="function not covered" >    co</span>nstructor(props) {
+<span class="cstat-no" title="statement not covered" >        super(props);</span>
+<span class="cstat-no" title="statement not covered" >        this.state = { season: '' };</span>
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    ge</span>tStandingsSelectedPhase() {
+        var phase = <span class="cstat-no" title="statement not covered" >this.props.leagueTable.stagesList.find(<span class="fstat-no" title="function not covered" >(o</span>bj) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >            return obj.stage_id.toString() === this.props.leagueTable.selectedStage;</span>
+        });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        return phase.standings.data;</span>
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    re</span>nderData(item) {
+<span class="cstat-no" title="statement not covered" >        return &lt;option value={item.team_id}&gt;{item.team_name}&lt;/option&gt;</span>
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    re</span>nder() {
+<span class="cstat-no" title="statement not covered" >        if (!this.props.leagueTable.selectedStage) {</span>
+<span class="cstat-no" title="statement not covered" >            return (</span>
+                &lt;div&gt;
+                    Select a league
+                &lt;/div&gt;
+            )
+        } else <span class="cstat-no" title="statement not covered" >if (!this.props.leagueTable.stagesList || this.props.leagueTable.fetchingData) {</span>
+<span class="cstat-no" title="statement not covered" >            return (</span>
+                &lt;div&gt;
+                    Loading leagueTable...
+                &lt;/div&gt;
+            )
+        } else {
+<span class="cstat-no" title="statement not covered" >            return (</span>
+                &lt;div className=""&gt;
+                    &lt;ReactTable
+                        data={this.getStandingsSelectedPhase()}
+                        columns={columns}
+                        showPagination={false}
+                        minRows={0}
+                    /&gt;
+                &lt;/div&gt;
+            )
+        }
+    }
+}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >leagueTable.propTypes = {</span>
+    leagueTableActions: PropTypes.object,
+    leagueTable: PropTypes.object
+};
+&nbsp;
+function <span class="fstat-no" title="function not covered" >mapStateToProps(</span>state) {
+<span class="cstat-no" title="statement not covered" >    return {</span>
+        leagueTable: state.leagueTable,
+    };
+}
+&nbsp;
+function <span class="fstat-no" title="function not covered" >mapDispatchToProps(</span>dispatch) {
+<span class="cstat-no" title="statement not covered" >    return {</span>
+        leagueTableActions: bindActionCreators(leagueTableActions, dispatch)
+    };
+}<span class="cstat-no" title="statement not covered" ></span>
+&nbsp;
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(leagueTable);</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Mar 09 2018 22:43:15 GMT+0000 (WET)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>
