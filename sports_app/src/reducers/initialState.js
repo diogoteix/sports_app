@@ -13,5 +13,12 @@ export default {
     fetchingData: false,
     stagesList: [],
     selectedStage: null
+  },
+  team: {
+    fetchingTeam: false,
+    fetchingPlayers: false,
+    teamData: null,
+    teamPlayers: [],
+    selectedTeam: null
   }
 };

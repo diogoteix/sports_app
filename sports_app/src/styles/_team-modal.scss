@@ -1,0 +1,31 @@
+.team {
+  .logo {
+    height: 60px;
+    width: 60px;
+    margin-right: 10px;
+  }
+
+  .team-name {
+    font-size: 30px;
+    vertical-align: middle;
+  }
+
+  .players {
+    h4 {
+      border-bottom: 1px solid gray;
+      padding-bottom: 5px;
+    }
+    .player {
+      margin-bottom: 10px;
+      img {
+        height: 40px;
+        width: 40px;
+        margin-right: 5px;
+      }
+
+      span {
+        vertical-align: middle;
+      }
+    }
+  }
+}

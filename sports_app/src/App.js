@@ -4,6 +4,7 @@ import LeaguesList from './components/leaguesList';
 import SeasonsList from './components/seasonsList';
 import LeagueStagesList from './components/leagueStagesList';
 import LeagueTable from './components/leagueTable';
+import TeamModal from './components/teamModal';
 import player from './images/player.svg';
 
 class App extends Component {
@@ -27,6 +28,7 @@ class App extends Component {
                         </div>
                     </div>
                     <LeagueTable />
+                    <TeamModal />
                 </div>
             </div>
         );

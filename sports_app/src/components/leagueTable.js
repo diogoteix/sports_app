@@ -2,6 +2,7 @@ import { FormGroup, FormControl, ControlLabel } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as leagueTableActions from '../actions/leagueTableActions';
+import * as teamActions from '../actions/teamActions';
 import PropTypes from 'prop-types';
 import React from 'react';
 import ReactTable from 'react-table';
@@ -45,15 +46,28 @@ const columns = [{
 class leagueTable extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { season: '' };
+        this.state = {
+            season: '',
+            stage: this.getStandingsSelectedPhase(props.leagueTable.stagesList, props.leagueTable.selectedStage)
+        };
     }
 
-    getStandingsSelectedPhase() {
-        var phase = this.props.leagueTable.stagesList.find((obj) => {
-            return obj.stage_id.toString() === this.props.leagueTable.selectedStage;
-        });
+    componentWillReceiveProps(nextProps) {
+        this.setState({
+            stage: this.getStandingsSelectedPhase(nextProps.leagueTable.stagesList, nextProps.leagueTable.selectedStage)
+        })
+    }
 
-        return phase.standings.data;
+    getStandingsSelectedPhase(stagesList, selectedStage) {
+        if (selectedStage) {
+            var phase = stagesList.find((obj) => {
+                return obj.stage_id.toString() === selectedStage;
+            });
+
+            return phase;
+        } else {
+            return null;
+        }
     }
 
     renderData(item) {
@@ -77,10 +91,20 @@ class leagueTable extends React.Component {
             return (
                 <div className="">
                     <ReactTable
-                        data={this.getStandingsSelectedPhase()}
+                        data={this.state.stage.standings.data}
                         columns={columns}
                         showPagination={false}
                         minRows={0}
+                        getTdProps={(state, rowInfo, column, instance) => {
+                            return {
+                                onClick: (e, handleOriginal) => {
+                                    console.log('It was in this row:', rowInfo.original.team_id)
+                                    this.props.teamActions.selectTeam(rowInfo.original.team_id)
+                                    this.props.teamActions.fetchTeam(rowInfo.original.team_id)
+                                    this.props.teamActions.fetchTeamPlayers(rowInfo.original.team_id, this.state.stage.season_id)
+                                }
+                            }
+                        }}
                     />
                 </div>
             )
@@ -90,6 +114,7 @@ class leagueTable extends React.Component {
 
 leagueTable.propTypes = {
     leagueTableActions: PropTypes.object,
+    teamActions: PropTypes.object,
     leagueTable: PropTypes.object
 };
 
@@ -101,7 +126,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        leagueTableActions: bindActionCreators(leagueTableActions, dispatch)
+        leagueTableActions: bindActionCreators(leagueTableActions, dispatch),
+        teamActions: bindActionCreators(teamActions, dispatch)
     };
 }
 
