@@ -1,0 +1,29 @@
+.player-selected {
+  .logo {
+    height: 60px;
+    width: 60px;
+    margin-right: 10px;
+  }
+
+  .player-name {
+    font-size: 30px;
+    vertical-align: middle;
+  }
+
+  .modal-body {
+    .row {
+      margin-bottom: 10px;
+    }
+
+    h4 {
+      border-bottom: 1px solid gray;
+      padding-bottom: 5px;
+    }
+
+    .title {
+      display: block;
+      font-weight: bold;
+      font-size: 16px;
+    }
+  }
+}

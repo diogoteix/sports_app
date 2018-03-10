@@ -19,6 +19,7 @@ export default {
     fetchingPlayers: false,
     teamData: null,
     teamPlayers: [],
-    selectedTeam: null
+    selectedTeam: null,
+    selectedPlayer: null
   }
 };

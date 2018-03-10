@@ -76,7 +76,9 @@ class teamModal extends React.Component {
       return (
         <Modal
           show={true}
-          onHide={this.props.teamActions.selectTeam}
+          onHide={() => {
+            this.props.teamActions.selectTeam(null);
+          }}
           className="team"
         >
           <Modal.Header closeButton>
@@ -113,7 +115,13 @@ class teamModal extends React.Component {
             />
           </Modal.Body>
           <Modal.Footer>
-            <Button onClick={this.handleClose}>Close</Button>
+            <Button
+              onClick={() => {
+                this.props.teamActions.selectTeam(null);
+              }}
+            >
+              Close
+            </Button>
           </Modal.Footer>
         </Modal>
       );

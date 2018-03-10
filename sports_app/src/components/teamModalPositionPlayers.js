@@ -1,3 +1,6 @@
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import * as teamActions from "../actions/teamActions";
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -13,7 +16,12 @@ class teamModalPositionPlayers extends React.Component {
             })
             .map(player => {
               return (
-                <div class="col-xs-4 player">
+                <div
+                  class="col-xs-4 player"
+                  onClick={() =>
+                    this.props.teamActions.selectPlayer(player.player_id)
+                  }
+                >
                   <img
                     src={player.player.data.image_path}
                     alt={player.player.data.common_name}
@@ -29,9 +37,24 @@ class teamModalPositionPlayers extends React.Component {
 }
 
 teamModalPositionPlayers.propTypes = {
+  teamActions: PropTypes.object,
   players: PropTypes.array,
   positionId: PropTypes.integer,
   positionName: PropTypes.string
 };
 
-export default teamModalPositionPlayers;
+function mapStateToProps(state) {
+  return {
+    team: state.team
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    teamActions: bindActionCreators(teamActions, dispatch)
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(
+  teamModalPositionPlayers
+);
